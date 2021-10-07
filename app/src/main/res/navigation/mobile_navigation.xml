@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/inicioFragment">
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.inicio.InicioFragment"
+        android:label="Acordes para Piano"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_acordesFragment"
+            app:destination="@id/acordesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionesFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.ConfiguracionesFragment"
+        android:label="Configuraciones"
+        tools:layout="@layout/fragment_configuraciones" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.InfoFragment"
+        android:label="Información"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/acordesFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.acordes.AcordesFragment"
+        android:label="Acordes"
+        tools:layout="@layout/fragment_acordes">
+        <action
+            android:id="@+id/action_acordesFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+</navigation>

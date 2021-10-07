@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  zoom: 100%;
+}
+
+ul {
+  height: 18.875em;
+  width: 60em;
+  margin: 0em;
+  padding: 2em 0 0 2em;
+  position: relative;
+  border: 1px solid #333;
+  border-radius: 1em;
+  background: #333;
+}
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+ul .white {
+  height: 16em;
+  width: 4em;
+  z-index: 1;
+  border-left: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-radius: 0 0 5px 5px;
+
+  background: #fff;
+}
+
+ul .white:active {
+  border-top: 1px solid #777;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
+    -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(top, #fff 0%, #e9e9e9 100%);
+}
+
+.active {
+
+  background: #FFF8A5 !important;
+}
+
+.active_negra {
+  height: 8em;
+  width: 2em;
+  margin: 0 0 0 -1em;
+  z-index: 2;
+  border: 1px solid #000;
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+    0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(10deg, #FFF8A5 0%, #FFF8A5 100%) !important;
+}
+
+.black {
+  height: 8em;
+  width: 2em;
+  margin: 0 0 0 -1em;
+  z-index: 2;
+  border: 1px solid #000;
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+    0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #222 0%, #555 100%);
+}
+
+.black:active {
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+    0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(left, #444 0%, #222 100%);
+}
+
+.a,
+.g,
+.f,
+.d,
+.c {
+  margin: 0 0 0 -1em;
+}
+
+ul li:first-child {
+  border-radius: 5px 0 5px 5px;
+}
+ul li:last-child {
+  border-radius: 0 5px 5px 5px;
+}
+
+.bl {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin: 5px auto;
+  margin-top: 13em;
+}
+
+
+
+
+.btn_sonar {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #f60;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px auto;
+  border: none;
+}
+
+#audio {
+  display: none;
+}
