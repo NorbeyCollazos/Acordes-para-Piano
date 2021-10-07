@@ -25,41 +25,11 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <HorizontalScrollView
-        android:id="@+id/content_acordes2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_below="@+id/content_notas">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <Button
-                android:id="@+id/btnC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C - (DO)"/>
-            <Button
-                android:id="@+id/btnD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D - (DO)"/>
-            <Button
-                android:id="@+id/btnE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="E - (DO)"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-
-
     <Spinner
         android:id="@+id/posiciones_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/content_acordes2"
+        android:layout_below="@+id/content_notas"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"/>
 
@@ -74,31 +44,11 @@
         android:layout_marginTop="10dp"/>
 
 
-    <HorizontalScrollView
-        android:id="@+id/content_acordes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_below="@+id/webview">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <RadioGroup
-                android:id="@+id/radioGroupListaacordes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:scrollbars="horizontal"></RadioGroup>
-        </LinearLayout>
-    </HorizontalScrollView>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/content_acordes"
+        android:layout_below="@+id/webview"
         android:scrollbars="horizontal"/>
 
 

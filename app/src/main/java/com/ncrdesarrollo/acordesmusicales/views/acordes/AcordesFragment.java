@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -111,36 +112,7 @@ public class AcordesFragment extends Fragment implements IAcordesFragment{
 
         //acordesPresenter.consultarAcorde(sharedPref.getNota(), sharedPref.getPosicion());
 
-        Button btnC = view.findViewById(R.id.btnC);
-        btnC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesArrayList.clear();
-                mostrarListaAcordes(acordesArrayList);
-            }
-        });
-
-        Button btnD = view.findViewById(R.id.btnD);
-        btnD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesPresenter.consultarAcordes("D");
-            }
-        });
-
-        Button btnE = view.findViewById(R.id.btnE);
-        btnE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesPresenter.consultarAcordes("E");
-            }
-        });
-
         recyclerView = view.findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
 
     }
@@ -235,75 +207,25 @@ public class AcordesFragment extends Fragment implements IAcordesFragment{
 
         webView.loadDataWithBaseURL("file:///android_asset/AcordesPiano/", html+htmlacorde+htmlcierre, "text/html", "UTF-8", null);
 
-        /*Log.i("dssd", acordes.get(0).getNombre());
-        Log.i("dssd", acordes.get(0).getHtml());
-        Log.i("dssd", acordes.get(0).getPosicion());*/
-
-
-
     }
 
     @Override
     public void mostrarListaAcordes(ArrayList<Acordes> acordes) {
 
-        /*final Dialog dialogF = new Dialog(getActivity());
-        dialogF.setContentView(R.layout.seleccionaracorde);
-        dialogF.setTitle("ELEGIR LA NOTA");
+        /*recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(linearLayoutManager);*/
 
-        //createRadioButtonsFondo();
-        RadioGroup groupt = (RadioGroup) dialogF.findViewById(R.id.radioGroupListaacordes);
-
-        for (int i = 0; i < acordes.size(); i++) {
-            final String acorde = acordes.get(i).getNombre();
-
-            final RadioButton rbAcorde = new RadioButton(getActivity());
-
-            rbAcorde.setText(acorde);
-
-            int position = i;
-            rbAcorde.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    acordesPresenter.consultarAcorde(acordes.get(position).getNombre(), sharedPref.getPosicion());
-                    sharedPref.setNota(acorde);
-                    acordes.clear();
-                    dialogF.dismiss();
-                }
-            });
-
-            groupt.addView(rbAcorde);
-        }
-
-        dialogF.show();*/
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        recyclerView.setLayoutManager(layoutManager);
 
         acordesArrayList = acordes;
-
-        for (int i = 0; i < acordesArrayList.size(); i++) {
-            final String acorde = acordesArrayList.get(i).getNombre();
-
-            final Button rbAcorde = new Button(getActivity());
-
-            rbAcorde.setText(acorde);
-
-            int position = i;
-            rbAcorde.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    acordesPresenter.consultarAcorde(acordes.get(position).getNombre(), sharedPref.getPosicion());
-                    sharedPref.setNota(acorde);
-
-                }
-            });
-
-            groupta.addView(rbAcorde);
-        }
-
         adapter = new AcordesAdapter(acordesArrayList,getContext());
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String acorde = acordes.get(recyclerView.getChildAdapterPosition(view)).getNombre();
-                Toast.makeText(getActivity(), ""+acorde, Toast.LENGTH_SHORT).show();
                 acordesPresenter.consultarAcorde(acorde, sharedPref.getPosicion());
             }
         });
