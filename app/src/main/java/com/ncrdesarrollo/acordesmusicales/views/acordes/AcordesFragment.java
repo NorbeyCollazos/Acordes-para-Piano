@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +26,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.ncrdesarrollo.acordesmusicales.Adapters.AcordesAdapter;
+import com.ncrdesarrollo.acordesmusicales.Adapters.FragmentAcordesAdapter;
 import com.ncrdesarrollo.acordesmusicales.R;
 import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
 import com.ncrdesarrollo.acordesmusicales.models.Acordes;
@@ -76,6 +80,9 @@ public class AcordesFragment extends Fragment implements IAcordesFragment{
     ArrayList<Acordes> acordesArrayList;
     RecyclerView recyclerView;
     AcordesAdapter adapter;
+    ArrayList<String> titulos;
+    FragmentAcordesAdapter fragmentAcordesAdapter;
+    ViewPager2 viewPager;
 
     public AcordesFragment() {
         // Required empty public constructor
@@ -96,7 +103,7 @@ public class AcordesFragment extends Fragment implements IAcordesFragment{
         acordesPresenter = new AcordesPresenter(this, getContext());
         sharedPref = new SharedPref(getContext());
 
-        spinner = (Spinner) view.findViewById(R.id.posiciones_spinner);
+        /*spinner = (Spinner) view.findViewById(R.id.posiciones_spinner);
         generarSpinnerPosiciones();
 
         groupt = (RadioGroup) view.findViewById(R.id.radioGroupListaRepertorio);
@@ -105,42 +112,41 @@ public class AcordesFragment extends Fragment implements IAcordesFragment{
 
         webView = view.findViewById(R.id.webview);
 
-        acordesArrayList = new ArrayList<>();
+        acordesArrayList = new ArrayList<>();*/
 
         //mostrarWebView();
 
         //acordesPresenter.consultarAcorde(sharedPref.getNota(), sharedPref.getPosicion());
 
-        Button btnC = view.findViewById(R.id.btnC);
-        btnC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesArrayList.clear();
-                mostrarListaAcordes(acordesArrayList);
-            }
-        });
 
-        Button btnD = view.findViewById(R.id.btnD);
-        btnD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesPresenter.consultarAcordes("D");
-            }
-        });
 
-        Button btnE = view.findViewById(R.id.btnE);
-        btnE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acordesPresenter.consultarAcordes("E");
-            }
-        });
-
-        recyclerView = view.findViewById(R.id.recyclerview);
+        /*recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManager);*/
+
+        titulos = new ArrayList<>();
+        titulos.add(new String("C (DO)"));
+        titulos.add(new String("D (RE)"));
+        titulos.add(new String("E (MI)"));
+        titulos.add(new String("F (FA)"));
+        titulos.add(new String("G (SOL)"));
+        titulos.add(new String("A (LA)"));
+        titulos.add(new String("B (SI)"));
+        fragmentAcordesAdapter = new FragmentAcordesAdapter(this, titulos);
+        viewPager = view.findViewById(R.id.pager);
+        viewPager.setAdapter(fragmentAcordesAdapter);
+
+        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+        new TabLayoutMediator(tabLayout, viewPager,
+                new TabLayoutMediator.TabConfigurationStrategy() {
+                    @Override
+                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                        tab.setText(titulos.get(position));
+                    }
+                }
+        ).attach();
 
 
     }

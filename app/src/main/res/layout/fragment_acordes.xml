@@ -1,106 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.acordes.AcordesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.MainActivity"
+    android:orientation="vertical">
 
-    <HorizontalScrollView
-        android:id="@+id/content_notas"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <RadioGroup
-                android:id="@+id/radioGroupListaRepertorio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:scrollbars="horizontal"></RadioGroup>
-        </LinearLayout>
-    </HorizontalScrollView>
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabTextColor="@android:color/white"
+        app:tabIndicatorFullWidth="true"
+        app:tabMode="scrollable"/>
 
-    <HorizontalScrollView
-        android:id="@+id/content_acordes2"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_below="@+id/content_notas">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <Button
-                android:id="@+id/btnC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C - (DO)"/>
-            <Button
-                android:id="@+id/btnD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D - (DO)"/>
-            <Button
-                android:id="@+id/btnE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="E - (DO)"/>
-        </LinearLayout>
-    </HorizontalScrollView>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-
-    <Spinner
-        android:id="@+id/posiciones_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/content_acordes2"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
-
-
-
-
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/webview"
-        android:layout_below="@+id/posiciones_spinner"
-        android:layout_marginTop="10dp"/>
-
-
-    <HorizontalScrollView
-        android:id="@+id/content_acordes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_below="@+id/webview">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-            <RadioGroup
-                android:id="@+id/radioGroupListaacordes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:scrollbars="horizontal"></RadioGroup>
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/content_acordes"
-        android:scrollbars="horizontal"/>
-
-
-
-</RelativeLayout>
+</LinearLayout>
