@@ -7,29 +7,40 @@
     <fragment
         android:id="@+id/inicioFragment"
         android:name="com.ncrdesarrollo.acordesmusicales.views.inicio.InicioFragment"
-        android:label="Acordes para Piano"
-        tools:layout="@layout/fragment_inicio" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_inicio">
         <action
             android:id="@+id/action_inicioFragment_to_acordesFragment"
             app:destination="@id/acordesFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_escalasFragment"
+            app:destination="@id/escalasFragment" />
     </fragment>
     <fragment
         android:id="@+id/configuracionesFragment"
         android:name="com.ncrdesarrollo.acordesmusicales.views.ConfiguracionesFragment"
-        android:label="Configuraciones"
+        android:label="@string/configuraciones"
         tools:layout="@layout/fragment_configuraciones" />
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.ncrdesarrollo.acordesmusicales.views.InfoFragment"
-        android:label="Información"
+        android:label="@string/info"
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/acordesFragment"
         android:name="com.ncrdesarrollo.acordesmusicales.views.acordes.AcordesFragment"
-        android:label="Acordes"
+        android:label="@string/acordes"
         tools:layout="@layout/fragment_acordes">
         <action
             android:id="@+id/action_acordesFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/escalasFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.escalas.EscalasFragment"
+        android:label="@string/escalas">
+        <action
+            android:id="@+id/action_escalasFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />
     </fragment>
 </navigation>

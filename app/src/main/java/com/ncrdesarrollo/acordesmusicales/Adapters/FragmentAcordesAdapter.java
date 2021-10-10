@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.ncrdesarrollo.acordesmusicales.views.ContenedorAcordesFragment;
+import com.ncrdesarrollo.acordesmusicales.views.acordes.ContenedorAcordesFragment;
 
 import java.util.ArrayList;
 

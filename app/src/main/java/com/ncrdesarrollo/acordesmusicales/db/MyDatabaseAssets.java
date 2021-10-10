@@ -7,7 +7,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class MyDatabaseAssets extends SQLiteAssetHelper {
 
-    private static final String DATABASE_NAME = "AcordesPiano0002.db";
+    private static final String DATABASE_NAME = "AcordesPiano0003.db";
     private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
 

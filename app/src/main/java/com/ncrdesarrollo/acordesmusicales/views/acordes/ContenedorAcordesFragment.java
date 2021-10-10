@@ -1,4 +1,4 @@
-package com.ncrdesarrollo.acordesmusicales.views;
+package com.ncrdesarrollo.acordesmusicales.views.acordes;
 
 import android.os.Bundle;
 
@@ -20,11 +20,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ncrdesarrollo.acordesmusicales.Adapters.AcordesAdapter;
 import com.ncrdesarrollo.acordesmusicales.R;
 import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
+import com.ncrdesarrollo.acordesmusicales.includes.Variables;
 import com.ncrdesarrollo.acordesmusicales.models.Acordes;
 import com.ncrdesarrollo.acordesmusicales.presenters.acordes.AcordesPresenter;
 import com.ncrdesarrollo.acordesmusicales.views.acordes.IAcordesFragment;
@@ -34,17 +36,16 @@ import java.util.ArrayList;
 
 public class ContenedorAcordesFragment extends Fragment implements IAcordesFragment {
 
-    String html = "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\"> <title>Pinao</title> <link rel=\"stylesheet\" type=\"text/css\" href=\"estilos.css\"> <script type=\"text/javascript\" src=\"funciones.js\"></script> <meta name=\"viewport\" content=\"initial-scale=1, maximum-scale=3\"> </head> <body>";
-    String htmlcierre =" </body> </html>";
+    String acorde = "";
+    String posicion = "PF";
     WebView webView;
     Spinner spinner;
-    RadioGroup groupt;
-    RadioGroup groupta;
     AcordesPresenter acordesPresenter;
     SharedPref sharedPref;
     ArrayList<Acordes> acordesArrayList;
     RecyclerView recyclerView;
     AcordesAdapter adapter;
+    TextView tvacorde;
 
     public ContenedorAcordesFragment() {
         // Required empty public constructor
@@ -70,9 +71,7 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         spinner = (Spinner) view.findViewById(R.id.posiciones_spinner);
         generarSpinnerPosiciones();
 
-        groupt = (RadioGroup) view.findViewById(R.id.radioGroupListaRepertorio);
-        groupta = (RadioGroup) view.findViewById(R.id.radioGroupListaacordes);
-        generarBotonesAcordes();
+        tvacorde = view.findViewById(R.id.tvacorde);
 
         webView = view.findViewById(R.id.webview);
 
@@ -82,12 +81,9 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
 
         acordesPresenter.consultarAcordes(String.valueOf(acorde.charAt(0)));
 
-    }
-
-    @Override
-    public void generarBotonesAcordes() {
 
     }
+
 
     @Override
     public void generarSpinnerPosiciones() {
@@ -97,32 +93,27 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
-        String posicion = sharedPref.getPosicion();
-        if (posicion.equals("PF")){
-            spinner.setSelection(0);
-        }else if (posicion.equals("1P")){
-            spinner.setSelection(1);
-        }else if (posicion.equals("2P")){
-            spinner.setSelection(2);
-        }
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        acordesPresenter.consultarAcorde(sharedPref.getNota(), "PF");
+                        acordesPresenter.consultarAcorde(acorde, "PF");
+                        posicion = "PF";
                         sharedPref.setPosicion("PF");
+
                         break;
 
                     case 1:
-                        acordesPresenter.consultarAcorde(sharedPref.getNota(), "1P");
+                        acordesPresenter.consultarAcorde(acorde, "1P");
+                        posicion = "1P";
                         sharedPref.setPosicion("1P");
                         break;
 
                     case 2:
-                        acordesPresenter.consultarAcorde(sharedPref.getNota(), "2P");
+                        acordesPresenter.consultarAcorde(acorde, "2P");
+                        posicion = "2P";
                         sharedPref.setPosicion("2P");
                         break;
                 }
@@ -137,6 +128,7 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
 
     @Override
     public void mostrarWebView(String nombre, String htmlacorde, String posicion) {
+        tvacorde.setText(nombre);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setDisplayZoomControls(false);
@@ -149,7 +141,11 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         webView.setInitialScale(30);
         /////////////////////////////////////////////////////////////////
 
-        webView.loadDataWithBaseURL("file:///android_asset/AcordesPiano/", html+htmlacorde+htmlcierre, "text/html", "UTF-8", null);
+        String pianohtml = htmlacorde;
+        if (htmlacorde.isEmpty()){
+            pianohtml = Variables.piano;
+        }
+        webView.loadDataWithBaseURL("file:///android_asset/AcordesPiano/", Variables.html+pianohtml+Variables.htmlcierre, "text/html", "UTF-8", null);
 
     }
 
@@ -162,16 +158,21 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);*/
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        //layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new AcordesAdapter(acordesArrayList,getContext());
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String acorde = acordes.get(recyclerView.getChildAdapterPosition(view)).getNombre();
-                Toast.makeText(getActivity(), ""+acorde, Toast.LENGTH_SHORT).show();
-                acordesPresenter.consultarAcorde(acorde, sharedPref.getPosicion());
+                acorde = acordes.get(recyclerView.getChildAdapterPosition(view)).getNombre();
+                acordesPresenter.consultarAcorde(acorde, posicion);
+                sharedPref.setNota(acorde);
+
+                acordesArrayList.clear();
+                acordesPresenter.consultarAcordes(String.valueOf(acorde.charAt(0)));
             }
         });
         recyclerView.setAdapter(adapter);

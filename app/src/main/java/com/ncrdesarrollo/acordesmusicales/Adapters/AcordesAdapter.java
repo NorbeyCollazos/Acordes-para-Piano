@@ -1,12 +1,14 @@
 package com.ncrdesarrollo.acordesmusicales.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ncrdesarrollo.acordesmusicales.R;
@@ -20,10 +22,13 @@ public class AcordesAdapter extends RecyclerView.Adapter<AcordesAdapter.acordesV
     ArrayList<Acordes> acordes;
     Context context;
     private View.OnClickListener listener;
+    SharedPref sharedPref;
+    int posicionMarcada;
 
     public AcordesAdapter(ArrayList<Acordes> acordes, Context context) {
         this.acordes = acordes;
         this.context = context;
+        sharedPref = new SharedPref(context);
 
     }
 
@@ -39,7 +44,6 @@ public class AcordesAdapter extends RecyclerView.Adapter<AcordesAdapter.acordesV
     public void onBindViewHolder(@NonNull acordesViewHolder holder, int position) {
         final Acordes acorde = acordes.get(position);
         holder.tvacorde.setText(acorde.getNombre());
-
     }
 
     @Override
@@ -60,11 +64,13 @@ public class AcordesAdapter extends RecyclerView.Adapter<AcordesAdapter.acordesV
 
     public class acordesViewHolder extends RecyclerView.ViewHolder {
         private TextView tvacorde;
+        private CardView card_content;
         private View view;
 
         public acordesViewHolder(@NonNull View itemView) {
             super(itemView);
             tvacorde = itemView.findViewById(R.id.tvacorde);
+            card_content = itemView.findViewById(R.id.card_content);
             view = itemView;
         }
     }

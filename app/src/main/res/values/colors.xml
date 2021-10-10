@@ -8,6 +8,7 @@
     <color name="colorPrimary">#DC7633</color>
     <color name="colorPrimaryDark">#AF601A</color>
     <color name="colorAccent">#D35400</color>
+    <color name="colorFondo">#ffffff</color>
     <color name="negrotransparente">#B5000000</color>
 
 </resources>

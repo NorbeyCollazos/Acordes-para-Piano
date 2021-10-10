@@ -1,6 +1,7 @@
 package com.ncrdesarrollo.acordesmusicales.views.acordes;
 
 import android.app.Dialog;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -59,6 +60,8 @@ public class AcordesFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         titulos = new ArrayList<>();
         titulos.add(new String("C (DO)"));

@@ -51,5 +51,12 @@ public class InicioFragment extends Fragment {
             }
         });
 
+        btn_escalas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.escalasFragment);
+            }
+        });
+
     }
 }

@@ -3,9 +3,8 @@ package com.ncrdesarrollo.acordesmusicales.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.ncrdesarrollo.acordesmusicales.Variables;
+import com.ncrdesarrollo.acordesmusicales.includes.Variables;
 import com.ncrdesarrollo.acordesmusicales.models.Acordes;
 
 import java.util.ArrayList;
@@ -59,7 +58,9 @@ public class ConsultasAcordes {
                     /*Log.i("dssd", fila.getString(1));
                     Log.i("dssd", fila.getString(2));
                     Log.i("dssd", fila.getString(3));*/
+                    Variables.nombreacorde = fila.getString(1);
                     Variables.htmlacorde = fila.getString(2);
+                    Variables.posicionacorde = fila.getString(4);
                     acordesArrayList.add(acorde);
                 }while (fila.moveToNext());
             }

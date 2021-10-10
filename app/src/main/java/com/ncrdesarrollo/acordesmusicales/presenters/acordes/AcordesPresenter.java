@@ -1,9 +1,8 @@
 package com.ncrdesarrollo.acordesmusicales.presenters.acordes;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.ncrdesarrollo.acordesmusicales.Variables;
+import com.ncrdesarrollo.acordesmusicales.includes.Variables;
 import com.ncrdesarrollo.acordesmusicales.db.ConsultasAcordes;
 import com.ncrdesarrollo.acordesmusicales.models.Acordes;
 import com.ncrdesarrollo.acordesmusicales.views.acordes.IAcordesFragment;
@@ -34,7 +33,7 @@ public class AcordesPresenter implements IAcordesPresenter{
     @Override
     public void consultarAcorde(String nombre, String posicion) {
         consultasAcordes.consultarAcorde(nombre, posicion);
-        view.mostrarWebView("", Variables.htmlacorde, "");
+        view.mostrarWebView(Variables.nombreacorde, Variables.htmlacorde, Variables.posicionacorde);
 
 
     }
