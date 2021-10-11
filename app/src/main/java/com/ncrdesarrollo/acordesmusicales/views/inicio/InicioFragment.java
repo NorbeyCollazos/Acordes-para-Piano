@@ -58,5 +58,12 @@ public class InicioFragment extends Fragment {
             }
         });
 
+        btn_circulosarmonicos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.circulosFragment);
+            }
+        });
+
     }
 }

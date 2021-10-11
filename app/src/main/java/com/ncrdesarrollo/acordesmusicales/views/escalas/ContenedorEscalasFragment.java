@@ -69,7 +69,11 @@ public class ContenedorEscalasFragment extends Fragment implements IEscalasFragm
 
         recyclerView = view.findViewById(R.id.recyclerview);
 
+        escalasPresenter.consultarEscala(acorde);
+
         escalasPresenter.consultarLista(String.valueOf(acorde.charAt(0)));
+
+
 
 
     }

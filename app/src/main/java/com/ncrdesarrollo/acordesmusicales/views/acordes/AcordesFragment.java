@@ -35,6 +35,7 @@ import com.ncrdesarrollo.acordesmusicales.Adapters.FragmentAcordesAdapter;
 import com.ncrdesarrollo.acordesmusicales.R;
 import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
 import com.ncrdesarrollo.acordesmusicales.models.Acordes;
+import com.ncrdesarrollo.acordesmusicales.models.AcordesCirculo;
 import com.ncrdesarrollo.acordesmusicales.presenters.acordes.AcordesPresenter;
 
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ public class AcordesFragment extends Fragment{
         //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         titulos = new ArrayList<>();
+
         titulos.add(new String("C (DO)"));
         titulos.add(new String("D (RE)"));
         titulos.add(new String("E (MI)"));

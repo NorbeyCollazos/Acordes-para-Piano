@@ -19,19 +19,20 @@ public class AcordesPresenter implements IAcordesPresenter{
     public AcordesPresenter(IAcordesFragment view, Context context) {
         this.view = view;
         this.context = context;
-        acordesArrayList = new ArrayList<>();
-        consultasAcordes = new ConsultasAcordes(context);
+
     }
 
     @Override
     public void consultarAcordes(String acorde) {
-
+        acordesArrayList = new ArrayList<>();
+        consultasAcordes = new ConsultasAcordes(context);
         acordesArrayList = consultasAcordes.consultarListaacordes(acorde);
         view.mostrarListaAcordes(acordesArrayList);
     }
 
     @Override
     public void consultarAcorde(String nombre, String posicion) {
+        consultasAcordes = new ConsultasAcordes(context);
         consultasAcordes.consultarAcorde(nombre, posicion);
         view.mostrarWebView(Variables.nombreacorde, Variables.htmlacorde, Variables.posicionacorde);
 

@@ -19,18 +19,20 @@ public class EscalasPresenter implements IEscalasPresenter{
     public EscalasPresenter(IEscalasFragment view, Context context) {
         this.view = view;
         this.context = context;
-        consultasEscalas = new ConsultasEscalas(context);
-        escalasArrayList = new ArrayList<>();
+
     }
 
     @Override
     public void consultarLista(String nota) {
+        consultasEscalas = new ConsultasEscalas(context);
+        escalasArrayList = new ArrayList<>();
         escalasArrayList = consultasEscalas.consultarListaEscalas(nota);
         view.mostrarListaEscalas(escalasArrayList);
     }
 
     @Override
     public void consultarEscala(String nombre) {
+        consultasEscalas = new ConsultasEscalas(context);
         consultasEscalas.consultarEscala(nombre);
         view.mostrarWebView(Variables.nombreescala, Variables.htmlescala);
     }

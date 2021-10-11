@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,6 +47,7 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
     RecyclerView recyclerView;
     AcordesAdapter adapter;
     TextView tvacorde;
+    CardView btnescuchar;
 
     public ContenedorAcordesFragment() {
         // Required empty public constructor
@@ -79,7 +81,17 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
 
         recyclerView = view.findViewById(R.id.recyclerview);
 
+        acordesPresenter.consultarAcorde(acorde, posicion);
+
         acordesPresenter.consultarAcordes(String.valueOf(acorde.charAt(0)));
+
+        btnescuchar = view.findViewById(R.id.btnescuchar);
+        btnescuchar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.loadUrl("javascript:(function() {var audio = document.getElementById(\"audio\");audio.play();})()");
+            }
+        });
 
 
     }
@@ -170,9 +182,6 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
                 acorde = acordes.get(recyclerView.getChildAdapterPosition(view)).getNombre();
                 acordesPresenter.consultarAcorde(acorde, posicion);
                 sharedPref.setNota(acorde);
-
-                acordesArrayList.clear();
-                acordesPresenter.consultarAcordes(String.valueOf(acorde.charAt(0)));
             }
         });
         recyclerView.setAdapter(adapter);

@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_escalasFragment"
             app:destination="@id/escalasFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_circulosFragment"
+            app:destination="@id/circulosFragment" />
     </fragment>
     <fragment
         android:id="@+id/configuracionesFragment"
@@ -42,5 +45,25 @@
         <action
             android:id="@+id/action_escalasFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/circulosFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.circulos.CirculosFragment"
+        android:label="@string/circulosmayores">
+        <action
+            android:id="@+id/action_circulosFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_circulosFragment_to_circulosMenoresFragment"
+            app:destination="@id/circulosMenoresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/circulosMenoresFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.circulos.CirculosMenoresFragment"
+        android:label="@string/circulosmenores"
+        tools:layout="@layout/fragment_circulos_menores">
+        <action
+            android:id="@+id/action_circulosMenoresFragment_to_circulosFragment"
+            app:destination="@id/circulosFragment" />
     </fragment>
 </navigation>

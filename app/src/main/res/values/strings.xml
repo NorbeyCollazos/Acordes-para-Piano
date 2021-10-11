@@ -35,6 +35,12 @@
     <string name="enviar_mensaje">Enviar mensaje</string>
     <string name="enviar_email">Enviar correo</string>
     <string name="no_clientes">No hay cliente de correo instalado</string>
+    <string name="escuchar">Escuchar</string>
+    <string name="circulosarmonicos">Círculos armónicos</string>
+    <string name="menores">Menores</string>
+    <string name="mayores">Mayores</string>
+    <string name="circulosmayores">Círculos mayores</string>
+    <string name="circulosmenores">Círculos menores</string>
 
     <string-array name="notas">
         <item>C (DO)</item>

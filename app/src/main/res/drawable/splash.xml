@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/fondovertical"/>
+
+    <!--<item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/fondovertical" />
+    </item>-->
+
+    <item
+        android:drawable="@drawable/ic_logo150x150"
+        android:gravity="center"
+        android:width="250dp"
+        android:height="250dp"
+        />
+
+
+</layer-list>
