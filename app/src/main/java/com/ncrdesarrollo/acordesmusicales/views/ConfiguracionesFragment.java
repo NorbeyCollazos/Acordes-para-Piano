@@ -18,7 +18,8 @@ import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
 public class ConfiguracionesFragment extends Fragment {
 
     Switch sworientacion;
-    Switch swnocturno;
+    Switch swpantallaactiva;
+    Switch swmodonocturno;
 
     SharedPref sharedPref;
 
@@ -37,6 +38,29 @@ public class ConfiguracionesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         sharedPref = new SharedPref(getContext());
+
+        //modo nocturno
+        swmodonocturno = view.findViewById(R.id.myswitchmodonocturno);
+        if (sharedPref.loadNightModeState()==true){
+            swmodonocturno.setChecked(true);
+            swmodonocturno.setText("Desactivar modo nocturno");
+        }else {
+            swmodonocturno.setText("Activar modo nocturno");
+        }
+        swmodonocturno.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    sharedPref.setNightModeState(true);
+                    actualizarPantaala();
+                }else{
+                    sharedPref.setNightModeState(false);
+                    actualizarPantaala();
+                }
+            }
+        });
+
+        //orientacion de panttalla
         sworientacion = view.findViewById(R.id.myswitch);
         if (sharedPref.loadOrientacionPantalla()==true){
             sworientacion.setChecked(true);
@@ -52,6 +76,27 @@ public class ConfiguracionesFragment extends Fragment {
                     actualizarPantaala();
                 }else{
                     sharedPref.setOrientacionPantalla(false);
+                    actualizarPantaala();
+                }
+            }
+        });
+
+        //para la pantalla activa
+        swpantallaactiva = view.findViewById(R.id.myswitchpantallaactiva);
+        if (sharedPref.loadPantallaActiva()==true){
+            swpantallaactiva.setChecked(true);
+            swpantallaactiva.setText("No mantener pantalla activa");
+        }else {
+            swpantallaactiva.setText("Mantener pantalla activa");
+        }
+        swpantallaactiva.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    sharedPref.setPantallaActiva(true);
+                    actualizarPantaala();
+                }else{
+                    sharedPref.setPantallaActiva(false);
                     actualizarPantaala();
                 }
             }

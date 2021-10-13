@@ -56,4 +56,15 @@ public class SharedPref {
         return  state;
     }
 
+    public void setPantallaActiva(Boolean state) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("pantallaActiva",state);
+        editor.commit();
+    }
+
+    public Boolean loadPantallaActiva (){
+        Boolean state = sharedPreferences.getBoolean("pantallaActiva",true);
+        return  state;
+    }
+
 }
