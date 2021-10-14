@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.escalas.ContenedorEscalasFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorFondo">
 
     <TextView
         android:id="@+id/tvacorde"
@@ -13,7 +14,8 @@
         android:text=""
         android:textSize="25dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorTitulo"
+        android:fontFamily="@font/fuente"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"/>
 
@@ -30,7 +32,8 @@
         android:text="@string/seleccionescala"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorTitulo"
+        android:fontFamily="@font/fuente"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"/>
     <androidx.recyclerview.widget.RecyclerView

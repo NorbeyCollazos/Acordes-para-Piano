@@ -8,7 +8,7 @@
     <color name="colorPrimary">#151413</color>
     <color name="colorPrimaryDark">#090808</color>
     <color name="colorAccent">#3F6850</color>
-    <color name="colorFondo">#151413</color>
+    <color name="colorFondo">#333</color>
     <color name="colorTitulo">#fff</color>
     <color name="colorTexto">#fff</color>
     <color name="negrotransparente">#B5000000</color>

@@ -43,6 +43,8 @@ dependencies {
     implementation 'io.github.florent37:shapeofview:1.4.7'
     //para base de datos
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    //servicios google publicidad
+    implementation 'com.google.android.gms:play-services-ads-lite:17.1.0'
 
 
     testImplementation 'junit:junit:4.12'

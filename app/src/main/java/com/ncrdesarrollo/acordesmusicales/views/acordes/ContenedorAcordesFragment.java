@@ -70,9 +70,6 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         acordesPresenter = new AcordesPresenter(this, getContext());
         sharedPref = new SharedPref(getContext());
 
-        spinner = (Spinner) view.findViewById(R.id.posiciones_spinner);
-        generarSpinnerPosiciones();
-
         tvacorde = view.findViewById(R.id.tvacorde);
 
         webView = view.findViewById(R.id.webview);
@@ -84,6 +81,9 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
         acordesPresenter.consultarAcorde(acorde, posicion);
 
         acordesPresenter.consultarAcordes(String.valueOf(acorde.charAt(0)));
+
+        spinner = (Spinner) view.findViewById(R.id.posiciones_spinner);
+        generarSpinnerPosiciones();
 
         btnescuchar = view.findViewById(R.id.btnescuchar);
         btnescuchar.setOnClickListener(new View.OnClickListener() {
@@ -100,9 +100,10 @@ public class ContenedorAcordesFragment extends Fragment implements IAcordesFragm
     @Override
     public void generarSpinnerPosiciones() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.posiciones, android.R.layout.simple_spinner_item);
+                R.array.posiciones, R.layout.item_spinner);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.item_lista_spinner);
 
         spinner.setAdapter(adapter);
 

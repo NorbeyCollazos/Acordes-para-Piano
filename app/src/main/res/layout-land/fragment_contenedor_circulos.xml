@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.acordes.AcordesFragment">
+    tools:context=".views.acordes.AcordesFragment"
+    android:background="@color/colorFondo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:text="@string/seleccionacorde"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorTitulo"
+                android:fontFamily="@font/fuente"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -57,7 +59,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text=""
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorTitulo"
+                    android:fontFamily="@font/fuente"
                     android:textSize="25dp"
                     android:textStyle="bold" />
                 <Spinner
@@ -66,7 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    app:backgroundTint="@color/colorTexto"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -83,6 +87,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/escuchar"
                         android:textColor="#fff"
+                        android:fontFamily="@font/fuente"
                         android:textStyle="bold"/>
                 </androidx.cardview.widget.CardView>
 

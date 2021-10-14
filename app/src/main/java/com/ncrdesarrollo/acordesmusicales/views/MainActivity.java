@@ -10,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.ncrdesarrollo.acordesmusicales.R;
+import com.ncrdesarrollo.acordesmusicales.includes.PublicidadBanner;
 import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     SharedPref sharedPref;
+
+    private PublicidadBanner publicidadAdMob;
+    private String idAdViewBottom = "ca-app-pub-3940256099942544/6300978111"; //prueba
+    //private String idAdViewBottom = "ca-app-pub-3507476224103115/2351541105"; //produccion
+    private View adViewBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
             //para evitar que la pantyalla se apague
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+
+        //para publicidad------
+        publicidadAdMob = new PublicidadBanner(this);
+        adViewBottom = findViewById(R.id.adViewBottom);
+        publicidadAdMob.adViewBottom(adViewBottom, idAdViewBottom);
+        //---------------------
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);

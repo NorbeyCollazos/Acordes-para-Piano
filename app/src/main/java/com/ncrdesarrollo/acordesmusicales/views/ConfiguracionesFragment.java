@@ -43,9 +43,9 @@ public class ConfiguracionesFragment extends Fragment {
         swmodonocturno = view.findViewById(R.id.myswitchmodonocturno);
         if (sharedPref.loadNightModeState()==true){
             swmodonocturno.setChecked(true);
-            swmodonocturno.setText("Desactivar modo nocturno");
+            swmodonocturno.setText(getString(R.string.desactivanocturno));
         }else {
-            swmodonocturno.setText("Activar modo nocturno");
+            swmodonocturno.setText(getString(R.string.activanocturno));
         }
         swmodonocturno.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -64,9 +64,9 @@ public class ConfiguracionesFragment extends Fragment {
         sworientacion = view.findViewById(R.id.myswitch);
         if (sharedPref.loadOrientacionPantalla()==true){
             sworientacion.setChecked(true);
-            sworientacion.setText("Modo vertical");
+            sworientacion.setText(getString(R.string.desactivahorizontal));
         }else {
-            sworientacion.setText("Modo horizontal");
+            sworientacion.setText(getString(R.string.activahorizontal));
         }
         sworientacion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -85,9 +85,9 @@ public class ConfiguracionesFragment extends Fragment {
         swpantallaactiva = view.findViewById(R.id.myswitchpantallaactiva);
         if (sharedPref.loadPantallaActiva()==true){
             swpantallaactiva.setChecked(true);
-            swpantallaactiva.setText("No mantener pantalla activa");
+            swpantallaactiva.setText(getString(R.string.noactivapantalla));
         }else {
-            swpantallaactiva.setText("Mantener pantalla activa");
+            swpantallaactiva.setText(getString(R.string.pantallaactiva));
         }
         swpantallaactiva.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

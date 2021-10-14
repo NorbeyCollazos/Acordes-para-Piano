@@ -107,9 +107,9 @@ public class ContenedorCirculosMenoresFragment extends Fragment implements ICirc
     @Override
     public void generarSpinnerPosiciones() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.posiciones, android.R.layout.simple_spinner_item);
+                R.array.posiciones, R.layout.item_spinner);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.item_lista_spinner);
 
         spinner.setAdapter(adapter);
 
