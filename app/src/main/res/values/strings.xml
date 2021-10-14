@@ -2,14 +2,6 @@
     <string name="app_name">Acordes para Piano</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -29,7 +21,7 @@
     <string name="info">Información</string>
     <string name="version">Versión</string>
     <string name="desarrollador">Desarrollador</string>
-    <string name="si_te_gustado">Si te ha gustado esta aplicación puedes calificarnos con cinco estrellas en Play Store</string>
+    <string name="si_te_gustado">Si te ha gustado esta aplicación, puedes calificarnos con cinco estrellas en Play Store</string>
     <string name="calificar_play_tore">Calificar en Play Store</string>
     <string name="si_tienes_alguna">Si tienes algún inconveniente o sugerencia de esta app, puedes escribirnos a través del correo electronico</string>
     <string name="enviar_mensaje">Enviar mensaje</string>
@@ -47,6 +39,9 @@
     <string name="activahorizontal">Activar pantalla horizontal</string>
     <string name="noactivapantalla">No mantener pantalla activa</string>
     <string name="pantallaactiva">Mantener pantalla activa</string>
+    <string name="mensajequitarpublicidad">Si deseas puedes ver un corto video para quitar la publicidad por dos horas</string>
+    <string name="vervideo">Ver video</string>
+    <string name="menu_quitar_publicidad">Quitar publicidad</string>
 
     <string-array name="notas">
         <item>C (DO)</item>

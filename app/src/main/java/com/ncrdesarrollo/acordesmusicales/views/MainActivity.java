@@ -10,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.ncrdesarrollo.acordesmusicales.R;
+import com.ncrdesarrollo.acordesmusicales.includes.IdsAdmob;
 import com.ncrdesarrollo.acordesmusicales.includes.PublicidadBanner;
 import com.ncrdesarrollo.acordesmusicales.includes.SharedPref;
 
@@ -28,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPref sharedPref;
 
     private PublicidadBanner publicidadAdMob;
-    private String idAdViewBottom = "ca-app-pub-3940256099942544/6300978111"; //prueba
-    //private String idAdViewBottom = "ca-app-pub-3507476224103115/2351541105"; //produccion
+    private String idAdViewBottom = IdsAdmob.idBaner;
     private View adViewBottom;
 
     @Override

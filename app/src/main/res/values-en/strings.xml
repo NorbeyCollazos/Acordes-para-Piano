@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Piano Chords</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="inversiones">Investments</string>
+    <string name="circulos_armonicos">Harmonic Circles</string>
+    <string name="no_poder_cargar">Could not load</string>
+    <string name="title_activity_inicio">Home</string>
+    <string name="menu_inicio">Home</string>
+    <string name="menu_config">Settings</string>
+    <string name="menu_info">Information</string>
+    <string name="seleccionacorde">Select the chord</string>
+    <string name="posicion">Position</string>
+    <string name="seleccionescala">Select scale</string>
+    <string name="escalas">Scales</string>
+    <string name="acordes">Chords</string>
+    <string name="configuraciones">Settings</string>
+    <string name="info">Information</string>
+    <string name="version">Version</string>
+    <string name="desarrollador">Developer</string>
+    <string name="si_te_gustado">If you liked this application, you can rate us with five stars in Play Store</string>
+    <string name="calificar_play_tore">Rate on Play Store</string>
+    <string name="si_tienes_alguna">If you have any inconvenience or suggestion of this app, you can write to us via email</string>
+    <string name="enviar_mensaje">Send Message</string>
+    <string name="enviar_email">Send mail</string>
+    <string name="no_clientes">No email client installed</string>
+    <string name="escuchar">Listen</string>
+    <string name="circulosarmonicos">Harmonic circles</string>
+    <string name="menores">Minors</string>
+    <string name="mayores">Greater</string>
+    <string name="circulosmayores">Major circles</string>
+    <string name="circulosmenores">Minor circles</string>
+    <string name="desactivanocturno">Turn off night mode</string>
+    <string name="activanocturno">Activate night mode</string>
+    <string name="desactivahorizontal">Disable horizontal screen</string>
+    <string name="activahorizontal">Enable horizontal screen</string>
+    <string name="noactivapantalla">Do not keep screen active</string>
+    <string name="pantallaactiva">Keep screen active</string>
+    <string name="mensajequitarpublicidad">If you want you can watch a short video to remove the advertising for two hours</string>
+    <string name="vervideo">Watch video</string>
+    <string name="menu_quitar_publicidad">Remove advertising</string>
+
+    <string-array name="notas">
+        <item>C (DO)</item>
+        <item>D (RE)</item>
+        <item>E (MI)</item>
+        <item>F (FA)</item>
+        <item>G (SOL)</item>
+        <item>A (LA)</item>
+        <item>B (SI)</item>
+    </string-array>
+
+    <string-array name="posiciones">
+        <item>PF</item>
+        <item>1P</item>
+        <item>2P</item>
+    </string-array>
+
+</resources>

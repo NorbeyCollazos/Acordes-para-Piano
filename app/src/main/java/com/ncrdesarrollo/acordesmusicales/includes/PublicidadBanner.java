@@ -13,7 +13,7 @@ import com.google.android.gms.ads.MobileAds;
 public class PublicidadBanner {
 
     Context context;
-    private String idProject = "ca-app-pub-3507476224103115~9192601807";
+    private String idProject = IdsAdmob.idProject;
 
     public PublicidadBanner(Context context) {
         this.context = context;
@@ -29,8 +29,6 @@ public class PublicidadBanner {
         ((RelativeLayout) view).addView(mAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        //ca-app-pub-3940256099942544/6300978111   para prueba
-        //ca-app-pub-3507476224103115/3508782865   en producción
 
         long tiempo_publicidad = 555;
 

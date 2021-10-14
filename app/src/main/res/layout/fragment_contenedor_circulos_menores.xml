@@ -83,7 +83,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                app:backgroundTint="@color/colorTitulo"/>
+                app:backgroundTint="@color/colorTexto"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"

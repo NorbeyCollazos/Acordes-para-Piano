@@ -16,5 +16,9 @@
             android:id="@+id/infoFragment"
             android:icon="@drawable/ic_menu_info"
             android:title="@string/menu_info" />
+        <item
+            android:id="@+id/quitarPublicidadFragment"
+            android:icon="@drawable/ic_cancel"
+            android:title="@string/menu_quitar_publicidad" />
     </group>
 </menu>

@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_circulosFragment"
             app:destination="@id/circulosFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_quitarPublicidadFragment"
+            app:destination="@id/quitarPublicidadFragment" />
     </fragment>
     <fragment
         android:id="@+id/configuracionesFragment"
@@ -65,5 +68,14 @@
         <action
             android:id="@+id/action_circulosMenoresFragment_to_circulosFragment"
             app:destination="@id/circulosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quitarPublicidadFragment"
+        android:name="com.ncrdesarrollo.acordesmusicales.views.QuitarPublicidadFragment"
+        android:label="@string/menu_quitar_publicidad"
+        tools:layout="@layout/fragment_quitar_publicidad">
+        <action
+            android:id="@+id/action_quitarPublicidadFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
 </navigation>
