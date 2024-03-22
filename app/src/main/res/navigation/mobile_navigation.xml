@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_quitarPublicidadFragment"
             app:destination="@id/quitarPublicidadFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_circulosMenoresFragment"
+            app:destination="@id/circulosMenoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/configuracionesFragment"
@@ -56,9 +59,6 @@
         <action
             android:id="@+id/action_circulosFragment_to_inicioFragment"
             app:destination="@id/inicioFragment" />
-        <action
-            android:id="@+id/action_circulosFragment_to_circulosMenoresFragment"
-            app:destination="@id/circulosMenoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/circulosMenoresFragment"
@@ -66,8 +66,8 @@
         android:label="@string/circulosmenores"
         tools:layout="@layout/fragment_circulos_menores">
         <action
-            android:id="@+id/action_circulosMenoresFragment_to_circulosFragment"
-            app:destination="@id/circulosFragment" />
+            android:id="@+id/action_circulosMenoresFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/quitarPublicidadFragment"

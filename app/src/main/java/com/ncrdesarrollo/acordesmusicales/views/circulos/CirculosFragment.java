@@ -51,7 +51,7 @@ public class CirculosFragment extends Fragment {
         titulos.add(new AcordesCirculo("C (DO)", "Dm (REm)", "Em (MIm)", "F (FA)", "G (SOL)", "Am (LAm)", "Bdim (SIdim)"));
         titulos.add(new AcordesCirculo("D (RE)", "Em (MIm)", "F#m (FA#m)", "G (SOL)", "A (LA)", "Bm (SIm)","C#dim (DO#dim)"));
         titulos.add(new AcordesCirculo("E (MI)","F#m (FA#m)","G#m (SOL#m)","A (LA)","B (SI)","C#m (DO#m)","D#dim (RE#dim)"));
-        titulos.add(new AcordesCirculo("F (FA)","Gm (SOLm)","Am (LAm)","A# (LA#)","C (DO)","Dm (REm)","Edim (MIdim)"));
+        titulos.add(new AcordesCirculo("F (FA)","Gm (SOLm)","Am (LAm)","Bb (SIb)","C (DO)","Dm (REm)","Edim (MIdim)"));
         titulos.add(new AcordesCirculo("G (SOL)","Am (LAm)","Bm (SIm)","C (DO)","D (RE)","Em (MIm)","F#dim (FA#dim)"));
         titulos.add(new AcordesCirculo("A (LA)","Bm (SIm)","C#m (DO#m)","D (RE)","E (MI)","F#m (FA#m)","G#dim (SOL#dim)"));
         titulos.add(new AcordesCirculo("B (SI)","C#m (DO#m)","D#m (RE#m)","E (MI)","F# (FA#)","G#m (SOL#m)","A#dim (LA#dim)"));
@@ -72,7 +72,7 @@ public class CirculosFragment extends Fragment {
 
     }
 
-    @Override
+   /* @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.circulos, menu);
     }
@@ -88,6 +88,6 @@ public class CirculosFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 
 }

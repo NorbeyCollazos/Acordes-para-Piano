@@ -21,6 +21,7 @@ public class InicioFragment extends Fragment {
     CircleView btn_acordes;
     CircleView btn_escalas;
     CircleView btn_circulosarmonicos;
+    CircleView btn_circulosarmonicos_menores;
 
     public InicioFragment() {
         // Required empty public constructor
@@ -43,6 +44,7 @@ public class InicioFragment extends Fragment {
         btn_acordes = view.findViewById(R.id.btn_acordes);
         btn_escalas = view.findViewById(R.id.btn_escalas);
         btn_circulosarmonicos = view.findViewById(R.id.btn_circulosarmonicos);
+        btn_circulosarmonicos_menores = view.findViewById(R.id.btn_circulosarmonicos_menores);
 
         btn_acordes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +64,13 @@ public class InicioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.circulosFragment);
+            }
+        });
+
+        btn_circulosarmonicos_menores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.circulosMenoresFragment);
             }
         });
 

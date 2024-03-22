@@ -28,7 +28,8 @@
     <string name="enviar_email">Enviar correo</string>
     <string name="no_clientes">No hay cliente de correo instalado</string>
     <string name="escuchar">Escuchar</string>
-    <string name="circulosarmonicos">Círculos armónicos</string>
+    <string name="circulosarmonicos">Círculos armónicos mayores</string>
+    <string name="circulosarmonicos_menores">Círculos armónicos menores</string>
     <string name="menores">Menores</string>
     <string name="mayores">Mayores</string>
     <string name="circulosmayores">Círculos mayores</string>

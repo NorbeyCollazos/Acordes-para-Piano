@@ -29,7 +29,8 @@
     <string name="enviar_email">Send mail</string>
     <string name="no_clientes">No email client installed</string>
     <string name="escuchar">Listen</string>
-    <string name="circulosarmonicos">Harmonic circles</string>
+    <string name="circulosarmonicos">Major harmonic circles</string>
+    <string name="circulosarmonicos_menores">Minor harmonic circles</string>
     <string name="menores">Minors</string>
     <string name="mayores">Greater</string>
     <string name="circulosmayores">Major circles</string>

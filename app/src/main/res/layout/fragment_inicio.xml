@@ -57,44 +57,6 @@
 
         </io.github.florent37.shapeofview.shapes.CircleView>
 
-        <!--<io.github.florent37.shapeofview.shapes.CircleView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_margin="0dp"
-            android:elevation="4dp"
-            app:shape_circle_borderColor="@color/colorAccent"
-            app:shape_circle_borderWidth="5dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#9C000000" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/inversiones"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:fontFamily="@font/fuente"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_teclado"
-                    android:layout_marginTop="5dp"/>
-            </LinearLayout>
-
-        </io.github.florent37.shapeofview.shapes.CircleView>-->
-
         <io.github.florent37.shapeofview.shapes.CircleView
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -160,6 +122,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/circulosarmonicos"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/fuente"
+                    android:gravity="center_horizontal"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_teclado"
+                    android:layout_marginTop="5dp"/>
+            </LinearLayout>
+
+        </io.github.florent37.shapeofview.shapes.CircleView>
+
+        <io.github.florent37.shapeofview.shapes.CircleView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="5dp"
+            android:elevation="4dp"
+            app:shape_circle_borderColor="@color/colorAccent"
+            app:shape_circle_borderWidth="5dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/btn_circulosarmonicos_menores">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9C000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/circulosarmonicos_menores"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
