@@ -38,7 +38,7 @@ public class QuitarPublicidadFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        publicidadVideoBonificado = new PublicidadVideoBonificado(getContext(), ID_VIDEO_BONIFICADO);
+        publicidadVideoBonificado = new PublicidadVideoBonificado(getActivity(), ID_VIDEO_BONIFICADO);
         CardView ver_video = view.findViewById(R.id.card_ver_video);
         ver_video.setOnClickListener(new View.OnClickListener() {
             @Override

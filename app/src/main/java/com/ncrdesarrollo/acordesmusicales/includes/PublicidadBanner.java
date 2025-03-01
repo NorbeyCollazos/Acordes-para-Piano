@@ -13,11 +13,10 @@ import com.google.android.gms.ads.MobileAds;
 public class PublicidadBanner {
 
     Context context;
-    private String idProject = IdsAdmob.idProject;
 
     public PublicidadBanner(Context context) {
         this.context = context;
-        MobileAds.initialize(context, idProject);
+        MobileAds.initialize(context);
     }
 
     public void adViewBottom(View view, String id) {

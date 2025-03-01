@@ -1,144 +1,89 @@
 package com.ncrdesarrollo.acordesmusicales.includes;
 
+
+import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.ncrdesarrollo.acordesmusicales.R;
-import com.ncrdesarrollo.acordesmusicales.views.MainActivity;
-
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.Date;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class PublicidadVideoBonificado implements RewardedVideoAdListener {
+import androidx.annotation.NonNull;
 
-    Context context;
+public class PublicidadVideoBonificado {
+
+    Activity context;
     String id;
 
-    private RewardedVideoAd rewardedVideoAd;
+    RewardedAd rewardedAd;
+    AdRequest adRequest;
+    private final String TAG = "VideoRewardedAd";
 
     ProgressDialog progressDialog;
 
     SharedPreferences mPref;
     SharedPreferences.Editor editor;
 
-    public PublicidadVideoBonificado(final Context context, final String id) {
+    public PublicidadVideoBonificado(final Activity context, final String id) {
         this.context = context;
         this.id = id;
-
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setIcon(R.mipmap.ic_launcher);
-        progressDialog.setMessage("Cargando...");
 
         mPref = context.getApplicationContext().getSharedPreferences("myPreferences", MODE_PRIVATE);
         editor = mPref.edit();
 
-        //TODO CAMBIAR ID
-        //AD PANTALLA COMPLETA VIDEO CON BONIFICADO
-        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context);
-        rewardedVideoAd.setRewardedVideoAdListener(this);
-        //rewardedVideoAd.loadAd("ca-app-pub-3507476224103115/1216186660", new AdRequest.Builder().build()); //original
-        rewardedVideoAd.loadAd(id, new AdRequest.Builder().build()); //prueba
+        new Thread(
+                () -> {
+                    // Initialize the Google Mobile Ads SDK on a background thread.
+                    MobileAds.initialize(context, initializationStatus -> {});
+                })
+                .start();
 
-        rewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+        loadRewardedAd();
+    }
+
+    private void loadRewardedAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        RewardedAd.load(context, id, adRequest, new RewardedAdLoadCallback() {
             @Override
-            public void onRewardedVideoAdLoaded() {
-
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                rewardedAd = null;
             }
 
             @Override
-            public void onRewardedVideoAdOpened() {
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void onRewardedVideoStarted() {
-
-            }
-
-            @Override
-            public void onRewardedVideoAdClosed() {
-                rewardedVideoAd.loadAd(id, new AdRequest.Builder().build()); //prueba
-                ((MainActivity) context).finish();
-                context.startActivity(((MainActivity) context).getIntent());
-            }
-
-            @Override
-            public void onRewarded(RewardItem rewardItem) {
-                //Toast.makeText(MainActivity.this, "onRewarded", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdLeftApplication() {
-                //Toast.makeText(MainActivity.this, "onRewardedVideoAdLeftApplication", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i) {
-                //Toast.makeText(MainActivity.this, "onRewardedVideoAdFailedToLoad", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRewardedVideoCompleted() {
-                //Toast.makeText(MainActivity.this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show();
-                editor.putLong("timestamp", new Date().getTime());
-                editor.apply();
+            public void onAdLoaded(@NonNull RewardedAd ad) {
+                super.onAdLoaded(rewardedAd);
+                rewardedAd = ad;
             }
         });
-
-
     }
 
     public void iniciar(){
-        if (rewardedVideoAd.isLoaded()) {
-            rewardedVideoAd.show();
+        if (rewardedAd != null) {
+            rewardedAd.show(context, new OnUserEarnedRewardListener() {
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    // Handle the reward.
+                    Log.d(TAG, "The user earned the reward.");
+                    int rewardAmount = rewardItem.getAmount();
+                    String rewardType = rewardItem.getType();
+                    editor.putLong("timestamp", new Date().getTime());
+                    editor.apply();
+                }
+            });
+        } else {
+            Log.d(TAG, "The rewarded ad wasn't ready yet.");
         }
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-
+        loadRewardedAd();
     }
 }
